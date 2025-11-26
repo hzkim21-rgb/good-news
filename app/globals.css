@@ -1,26 +1,70 @@
-@import "tailwindcss";
+/* app/globals.css */
+/* 일단 Tailwind는 잠시 빼고, 기본 스타일만 사용합니다. */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-main: #0f172a;
+  --bg-card: #111827;
+  --border-soft: #1f2937;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #22c55e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* 모바일 기준 중앙 카드 느낌 */
+
+.app-root {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background-color: #020617;
+  border-left: 1px solid #020617;
+  border-right: 1px solid #020617;
+}
+
+/* 아래는 최소한으로 쓰는 공통 스타일 (필요하면 점점 늘려도 됨) */
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--border-soft);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--accent);
+  color: #022c22;
+  font-weight: 600;
+  cursor: pointer;
 }
