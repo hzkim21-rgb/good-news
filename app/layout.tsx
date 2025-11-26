@@ -1,20 +1,30 @@
+import type { Metadata } from "next";
 import "./globals.css";
-import BottomNav from "@/components/BottomNav";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "기쁜 소식",
-  description: "부담 없이 예수님을 알아가는 7일 여정"
+  description: "예수님을 부드럽게 소개하는 7일 탐색 웹앱",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ko">
+      <head>
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#020617" />
+      </head>
       <body>
-        <main className="max-w-md mx-auto px-4 pt-6 pb-24">
+        <div className="app-root">
+          <ServiceWorkerRegister />
           {children}
-        </main>
-        <BottomNav />
+        </div>
       </body>
     </html>
   );
 }
+
